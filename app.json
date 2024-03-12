@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "react-native-paper-example",
+    "slug": "snack-265fb49b-e0b1-47a9-a0c0-0a70c6ca9feb",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "description": "callstack/react-native-paper/v5",
+    "extra": {
+      "eas": {
+        "projectId": "679c3046-24c2-4928-864d-1969218470dd"
+      }
+    }
+  }
+}

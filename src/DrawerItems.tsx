@@ -14,7 +14,12 @@ import {
   Title,
   TouchableRipple,
 } from 'react-native-paper';
-
+import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import Feather from 'react-native-vector-icons/Feather';
+import Foundation from 'react-native-vector-icons/Foundation';
+import Octicons from 'react-native-vector-icons/Octicons';
 import { PreferencesContext, useExampleTheme } from './index';
 
 const isWeb = Platform.OS === 'web';
@@ -87,9 +92,8 @@ const DrawerCollapsedItemsData = [
   },
 ];
 
-function DrawerItems({navigation} : { navigation:any }) {
-  console.log(navigation)
-  const [drawerItemIndex, setDrawerItemIndex] = React.useState<number>(0);
+function DrawerItems({ navigation }: { navigation: any }) {
+  const [drawerItemIndex, setDrawerItemIndex] = React.useState<number>();
   const preferences = React.useContext(PreferencesContext);
 
   const _setDrawerItem = (index: number) => setDrawerItemIndex(index);
@@ -124,23 +128,23 @@ function DrawerItems({navigation} : { navigation:any }) {
 
   const DrawerItemsArray = [
     {
-      icon: 'menu',
+      icon: () => <Feather name="phone-call" size={20} />,
       label: 'School Office'
     },
     {
-      icon: 'menu',
+      icon: () => <FontAwesome name="newspaper-o" size={20} />,
       label: 'News/Notification'
     },
     {
-      icon: 'menu',
+      icon: () => <Feather name="bell" size={20} />,
       label: 'Personal Notification'
     },
     {
-      icon: 'menu',
+      icon: () => <AntDesign name="folder1" size={20} />,
       label: 'News Archives'
     },
     {
-      icon: 'menu',
+      icon: () => <FontAwesome name="photo" size={20} />,
       label: 'Gallary'
     },
     {
@@ -148,7 +152,7 @@ function DrawerItems({navigation} : { navigation:any }) {
       label: 'Calender'
     },
     {
-      icon: 'menu',
+      icon: () => <MaterialIcon name="toaster-oven" size={20} />,
       label: 'My Student'
     },
     {
@@ -156,15 +160,15 @@ function DrawerItems({navigation} : { navigation:any }) {
       label: 'Absentee form'
     },
     {
-      icon: 'menu',
+      icon: () => <Octicons name="stopwatch" size={20} />,
       label: 'Late Note'
     },
     {
-      icon: 'menu',
+      icon: () => <Foundation name="social-skillshare" size={20} />,
       label: 'Study Skills'
     },
     {
-      icon: 'menu',
+      icon: () => <MaterialIcon name="logout" size={20} />,
       label: 'Permission to leave'
     },
     {
@@ -193,6 +197,8 @@ function DrawerItems({navigation} : { navigation:any }) {
 
   return (
     <DrawerContentScrollView
+      accessibilityLabel='Drawer'
+      accessibilityRole='menu'
       alwaysBounceVertical={false}
       style={[
         styles.drawerContent,
@@ -220,8 +226,8 @@ function DrawerItems({navigation} : { navigation:any }) {
         <>
 
           <Drawer.Section>
-            <View style={{flex:1,justifyContent: 'space-between',alignItems: 'center',paddingTop:10}}>
-              <Image source={{ uri: 'https://photos.wellfound.com/startups/i/1105510-cfc8fe7e2e2e2cccf5e6315b27e2c572-medium_jpg.jpg?buster=1627560500' }} style={{ width: 100, height: 100, }} />
+            <View style={{ flex: 1, justifyContent: 'space-between', alignItems: 'center', paddingTop: 10 }}>
+              <Image source={require('../assets/images/school_logo_124.png')} style={{ width: 100, height: 100, }} />
               <Text variant='titleLarge'>Test App</Text>
               <Text variant='titleMedium'>Dublin, Ireland</Text>
             </View>
@@ -229,10 +235,14 @@ function DrawerItems({navigation} : { navigation:any }) {
           <Drawer.Section>
             <View style={styles.cardContent}>
               <View style={styles.cardImage}>
+                <Image source={{ uri: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png' }} style={{
+                  width: 60,
+                  height: 60,
+                }} />
               </View>
               <View style={styles.textContainer}>
-                <Title>Aunt May</Title>
-                <Paragraph>Teacher</Paragraph>
+                <Text variant='titleMedium'>Aunt May</Text>
+                <Text variant='titleSmall'>Teacher</Text>
               </View>
             </View>
           </Drawer.Section>
@@ -244,7 +254,7 @@ function DrawerItems({navigation} : { navigation:any }) {
                 theme={{ colors: { secondaryContainer: MD3Colors.error50 } }}
                 style={{ width: '100%', borderRadius: 0, }}
                 active={drawerItemIndex === index}
-                onPress={() =>{ _setDrawerItem(index),navigation.navigate('Home2')}}
+                onPress={() => { navigation.navigate(props.label), _setDrawerItem(index) }}
               />
             ))}
           </Drawer.Section>
@@ -303,8 +313,7 @@ const styles = StyleSheet.create({
   cardImage: {
     backgroundColor: '#fff',
     borderRadius: 50,
-    width: 50,
-    height: 50,
+
     marginRight: 15,
   },
   v3Preference: {

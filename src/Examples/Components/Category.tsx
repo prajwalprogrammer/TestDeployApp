@@ -8,6 +8,7 @@ import {
   MD3Colors,
   List,
   Button,
+  TouchableRipple,
 } from 'react-native-paper';
 import ScreenWrapper from '../../ScreenWrapper';
 
@@ -15,9 +16,9 @@ import ScreenWrapper from '../../ScreenWrapper';
 const Category = ({ data }: { data: any }) => {
   const renderSurface = (val: any, idx: number) => (
 
-    <Button mode='contained-tonal' onPress={() => { }} style={{ margin: 5, backgroundColor: '#b70000', minHeight: 45 }}>
-      <Text variant='titleLarge' style={{ color: 'white' }}>{val}</Text>
-    </Button>
+    <TouchableRipple onPress={() => { }} style={{paddingHorizontal:30,borderRadius:30, margin: 5,justifyContent:'center', backgroundColor: '#b70000', minHeight: 48 }}>
+      <Text  style={{ color: 'white',fontSize: 20}}>{val}</Text>
+    </TouchableRipple>
   );
 
   return (

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { I18nManager } from 'react-native';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { DrawerNavigationProp, createDrawerNavigator } from '@react-navigation/drawer';
 import {
   InitialState,
   NavigationContainer,
@@ -24,11 +24,21 @@ import {
   useTheme,
   adaptNavigationTheme,
   configureFonts,
+  Appbar,
 } from 'react-native-paper';
 import { SafeAreaInsetsContext } from 'react-native-safe-area-context';
 
 import DrawerItems from './DrawerItems';
 import App from './RootNavigator';
+import Canteen from './Examples/Screen/Canteen';
+import PersonalNotification from './Examples/Screen/PersonalNotification';
+import News from './Examples/Screen/News';
+import Gallary from './Examples/Screen/Gallary';
+import MyStudent from './Examples/Screen/MyStudent';
+import Notification from './Examples/Screen/Notification';
+import { getHeaderTitle } from '@react-navigation/elements';
+import PermissionToLeave from './Examples/Screen/PermissionToLeave';
+import StudySkills from './Examples/Screen/StudySkills';
 
 const PERSISTENCE_KEY = 'NAVIGATION_STATE';
 const PREFERENCES_KEY = 'APP_PREFERENCES';
@@ -213,6 +223,78 @@ export default function PaperExample() {
       },
     }),
   };
+  const DrawerItemsArray = [
+    {
+      icon: 'menu',
+      label: 'School Office',
+      comp : Canteen
+    },
+    {
+      icon: 'menu',
+      label: 'News/Notification',
+      comp : Notification
+    },
+    {
+      icon: 'menu',
+      label: 'Personal Notification',
+      comp : PersonalNotification
+    },
+    {
+      icon: 'menu',
+      label: 'News Archives',
+      comp : News
+    },
+    {
+      icon: 'menu',
+      label: 'Gallary',
+      comp :Gallary
+    },
+    {
+      icon: 'menu',
+      label: 'Calender',
+      comp :Gallary
+    },
+    {
+      icon: 'menu',
+      label: 'My Student',
+      comp : MyStudent
+    },
+    {
+      icon: 'menu',
+      label: 'Absentee form',
+      comp : MyStudent
+    },
+    {
+      icon: 'menu',
+      label: 'Late Note',
+      comp : MyStudent
+    },
+    {
+      icon: 'menu',
+      label: 'Study Skills',
+      comp : StudySkills
+    },
+    {
+      icon: 'menu',
+      label: 'Permission to leave',
+      comp : PermissionToLeave
+    },
+    {
+      icon: 'menu',
+      label: 'Canteen',
+      comp : MyStudent
+    },
+    {
+      icon: 'menu',
+      label: 'Visitors Declaration',
+      comp : MyStudent
+    },
+    {
+      icon: 'menu',
+      label: 'Notice Boards',
+      comp : MyStudent
+    },
+  ]
 
   return (
     <PaperProvider
@@ -236,18 +318,44 @@ export default function PaperExample() {
                       drawerStyle: collapsed && {
                         width: collapsedDrawerWidth,
                       },
+                      header: ({ navigation, route, options }) => {
+                        const title = getHeaderTitle(options, route.name);
+                        return (
+                          <Appbar.Header style={{ backgroundColor: '#b70000' }} elevated>
+                            {(navigation as any).openDrawer ? (
+                              <Appbar.Action
+                                accessibilityRole='menu'
+                                accessibilityLabel='Open Drawer'
+                                icon="menu"
+                                isLeading
+                                color='white'
+                                size={32}
+                                onPress={() =>
+                                  (
+                                    navigation as any as DrawerNavigationProp<{}>
+                                  ).openDrawer()
+                                }
+                              />
+                            ) : null}
+                            <Appbar.Content color='white'  title={title} accessibilityLabel={`${title}`} accessibilityRole='header' />
+                          </Appbar.Header>
+                        );
+                      },
                     }}
+                    
                     drawerContent={(props) => <DrawerItems {...props} />}>
                     <Drawer.Screen
                       name="Home"
                       component={App}
                       options={{ headerShown: false }}
                     />
+                    {DrawerItemsArray.map((screen,idx) =>
                     <Drawer.Screen
-                      name="Home2"
-                      component={App}
-                      options={{ headerShown: false }}
-                    />
+                      key={idx}
+                      name={screen.label}
+                      component={screen.comp}
+                      // options={{ headerShown: false }}
+                    />)}
                   </Drawer.Navigator>
                 );
               }}

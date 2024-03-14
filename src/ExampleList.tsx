@@ -56,12 +56,18 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import type { DrawerNavigationProp } from '@react-navigation/drawer';
 import { getHeaderTitle } from '@react-navigation/elements';
+import Feather from 'react-native-vector-icons/Feather';
 
 import { useExampleTheme } from './index';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Category from './Examples/Components/Category';
 import ScreenWrapper from './ScreenWrapper';
 import Card1 from './Examples/Components/Card';
+import Notification from './Examples/Screen/Notification';
+import StudentBlog from './Examples/Screen/StudentBlog';
+import Attention from './Examples/Screen/Attention';
+import News from './Examples/Screen/News';
+import PersonalNotification from './Examples/Screen/PersonalNotification';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -109,59 +115,8 @@ function HomeScreen({ navigation }: Props) {
     </View>
   );
 }
-function Notification({ navigation }: Props) {
-  const keyExtractor = (item: { id: string }) => item.id;
 
-  const { colors, isV3 } = useExampleTheme();
-  const safeArea = useSafeAreaInsets();
 
-  const data1 = ["Stock", "Science Information", "something new","Sports","Art","naresh School","Music","news limited","Cat1","Cricket","Events"];
-  const renderItem = ({ item }: { item: Item }) => {
-    const { data, id } = item;
-
-    if (!isV3 && data.title === mainExamples.themingWithReactNavigation.title) {
-      return null;
-    }
-
-    return (
-      <>
-      <Category data={data1} />
-          <List.Item
-            unstable_pressDelay={65}
-            title={data.title}
-            onPress={() => navigation.navigate(id)}
-          />
-      </>
-
-    );
-  };
-  return (
-
-    <ScreenWrapper>
-      <Category data={data1} />
-      <Card1 url="https://photos.wellfound.com/startups/i/1105510-cfc8fe7e2e2e2cccf5e6315b27e2c572-medium_jpg.jpg?buster=1627560500" data="Hello" dis="world" />
-      <Divider />
-      <Card1 url="https://photos.wellfound.com/startups/i/1105510-cfc8fe7e2e2e2cccf5e6315b27e2c572-medium_jpg.jpg?buster=1627560500" data="Hello" dis="world" />
-      <Divider />
-      <Card1 url="https://photos.wellfound.com/startups/i/1105510-cfc8fe7e2e2e2cccf5e6315b27e2c572-medium_jpg.jpg?buster=1627560500" data="Hello" dis="world" />
-      <Divider />
-      <Card1 url="https://photos.wellfound.com/startups/i/1105510-cfc8fe7e2e2e2cccf5e6315b27e2c572-medium_jpg.jpg?buster=1627560500" data="Hello" dis="world" />
-      <Divider />
-      <Card1 url="https://photos.wellfound.com/startups/i/1105510-cfc8fe7e2e2e2cccf5e6315b27e2c572-medium_jpg.jpg?buster=1627560500" data="Hello" dis="world" />
-      <Divider />
-      <Card1 url="https://photos.wellfound.com/startups/i/1105510-cfc8fe7e2e2e2cccf5e6315b27e2c572-medium_jpg.jpg?buster=1627560500" data="Hello" dis="world" />
-      <Divider />
-    </ScreenWrapper>
-  );
-}
-
-function SettingsScreen() {
-  return (
-    <View style={styles.container}>
-      <Text variant="headlineMedium">Settings!</Text>
-    </View>
-  );
-}
 
 const HomeTab = () => {
   return (
@@ -171,6 +126,8 @@ const HomeTab = () => {
         return {
           tabBarStyle: {
             height: 60,
+            justifyContent:'flex-start',
+            alignSelf:'auto'
           },
           tabBarItemStyle:{
             alignSelf:'center'
@@ -227,25 +184,25 @@ const HomeTab = () => {
       />
       <Tab.Screen
         name="Personal Notification"
-        component={HomeScreen}
+        component={PersonalNotification}
         options={{
           tabBarIcon: ({ color, size }) => {
-            return <Icon name="home" size={size} color={color} />;
+            return <Feather name="bell" size={20} />;
           },
         }}
       />
       <Tab.Screen
         name="Student Blog"
-        component={SettingsScreen}
+        component={StudentBlog}
         options={{
           tabBarIcon: ({ color, size }) => {
-            return <Icon name="cog" size={size} color={color} />;
+            return <Icon name="signal-variant" size={size} color={color} />;
           },
         }}
       />
       <Tab.Screen
         name="Attention Please"
-        component={SettingsScreen}
+        component={Attention}
         options={{
           tabBarIcon: ({ color, size }) => {
             return <Icon name="cog" size={size} color={color} />;
@@ -260,23 +217,23 @@ export const mainExamples: Record<
   string,
   React.ComponentType<any> & { title: string }
 > = {
-  // animatedFab: AnimatedFABExample,
-  // activityIndicator: ActivityIndicatorExample,
-  // appbar: AppbarExample,
-  // avatar: AvatarExample,
-  // badge: BadgeExample,
-  // banner: BannerExample,
+  animatedFab: AnimatedFABExample,
+  activityIndicator: ActivityIndicatorExample,
+  appbar: AppbarExample,
+  avatar: AvatarExample,
+  badge: BadgeExample,
+  banner: BannerExample,
   bottomNavigationBarExample: BottomNavigationBarExample,
   bottomNavigation: BottomNavigationExample,
-  // button: ButtonExample,
-  // card: CardExample,
+  button: ButtonExample,
+  card: CardExample,
   checkbox: CheckboxExample,
   checkboxItem: CheckboxItemExample,
-  // chip: ChipExample,
-  // dataTable: DataTableExample,
+  chip: ChipExample,
+  dataTable: DataTableExample,
   dialog: DialogExample,
-  // divider: DividerExample,
-  // fab: FABExample,
+  divider: DividerExample,
+  fab: FABExample,
   iconButton: IconButtonExample,
   icon: IconExample,
   listAccordion: ListAccordionExample,

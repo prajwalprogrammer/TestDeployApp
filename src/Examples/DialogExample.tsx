@@ -49,7 +49,7 @@ const DialogExample = () => {
       >
         Click to open Dialog
       </Button>
-      {/* <Button
+      <Button
         mode="outlined"
         onPress={_toggleDialog('dialog2')}
         style={styles.button}
@@ -94,12 +94,12 @@ const DialogExample = () => {
         >
           Dismissable back button
         </Button>
-      )} */}
+      )}
       <DialogWithLongText
         visible={_getVisible('dialog1')}
         close={_toggleDialog('dialog1')}
       />
-      {/* <DialogWithRadioBtns
+      <DialogWithRadioBtns
         visible={_getVisible('dialog2')}
         close={_toggleDialog('dialog2')}
       />
@@ -124,7 +124,7 @@ const DialogExample = () => {
       <DialogWithDismissableBackButton
         visible={_getVisible('dialog7')}
         close={_toggleDialog('dialog7')}
-      /> */}
+      />
     </ScreenWrapper>
   );
 };

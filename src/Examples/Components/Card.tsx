@@ -11,20 +11,23 @@ import {
   Paragraph,
   Text,
   Title,
+  TouchableRipple,
 } from 'react-native-paper';
 
 const Card1 = ({data,url,dis}: {data: string,url: string,dis: string}) => {
 
   return (
-        <Card style={styles.card} mode='outlined'>
+        <Card accessibilityRole='button' style={styles.card} mode='outlined'>
           <View style={styles.cardContent}>
             <Image
-              source={{ uri: url }}
+              accessibilityRole='image'
+              accessibilityLabel={data}
+              source={require('../../../assets/images/school_logo_124.png')}
               style={styles.cardImage}
             />
             <View style={styles.textContainer}>
-              <Title>{data}</Title>
-              <Paragraph>{dis}</Paragraph>
+              <Text variant='bodyLarge' accessibilityLabel={data}>{data}</Text>
+              <Text variant='labelSmall' style={{fontWeight:"100"}}>{dis}</Text>
             </View>
           </View>
         </Card>
@@ -51,8 +54,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   cardImage: {
-    width: 100,
-    height: 100,
+    width: 60,
+    height: 60,
     marginRight: 10,
   },
   textContainer: {

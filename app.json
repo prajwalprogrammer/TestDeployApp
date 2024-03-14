@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "react-native-paper-example",
+    "name": "AccessibleTestApp",
     "slug": "snack-265fb49b-e0b1-47a9-a0c0-0a70c6ca9feb",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -21,7 +21,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.prajwalprogrammer.snack265fb49be0b147a9a0c00a70c6ca9feb"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -31,6 +32,15 @@
       "eas": {
         "projectId": "679c3046-24c2-4928-864d-1969218470dd"
       }
-    }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/679c3046-24c2-4928-864d-1969218470dd"
+    },
+    "plugins": [
+      "expo-localization"
+    ]
   }
 }

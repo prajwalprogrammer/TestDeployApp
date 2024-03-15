@@ -1,0 +1,42 @@
+{
+  "files": {
+    "main.js": "/static/js/main.fc5b2d66.js",
+    "static/js/391.94dc4443.js": "/static/js/391.94dc4443.js",
+    "static/media/MaterialCommunityIcons.ttf": "/static/media/MaterialCommunityIcons.5d42b4e60858731e7b65.ttf",
+    "static/media/Ionicons.ttf": "/static/media/Ionicons.3517aeaa34b2f8cd8eef.ttf",
+    "static/media/FontAwesome5_Solid.ttf": "/static/media/FontAwesome5_Solid.07c3313b24f7b1ca85ee.ttf",
+    "static/media/song-1.jpg": "/static/media/song-1.ee216fc84cda4d4231d7.jpg",
+    "static/media/restaurant-1.jpg": "/static/media/restaurant-1.22fdb0970e86732fc2fb.jpg",
+    "static/media/restaurant-2.jpg": "/static/media/restaurant-2.e821936edad3214ea1e9.jpg",
+    "static/media/FontAwesome.ttf": "/static/media/FontAwesome.1e59d2330b4c6deb84b3.ttf",
+    "static/media/players-2.jpg": "/static/media/players-2.12387966da761f0909d3.jpg",
+    "static/media/song-2.jpg": "/static/media/song-2.5eab674b4ef1bef32056.jpg",
+    "static/media/players.jpg": "/static/media/players.e4029d8c4828f59b2e20.jpg",
+    "static/media/FontAwesome5_Brands.ttf": "/static/media/FontAwesome5_Brands.9e138496e8f1719c6ebf.ttf",
+    "static/media/artist-2.jpg": "/static/media/artist-2.b0c256fc68d3672b6b2b.jpg",
+    "static/media/artist-1.jpg": "/static/media/artist-1.dd735be0b8496b98916f.jpg",
+    "static/media/AntDesign.ttf": "/static/media/AntDesign.163adab9dbd7cb1ed12a.ttf",
+    "static/media/Foundation.ttf": "/static/media/Foundation.c0cbb004854f9c746f89.ttf",
+    "static/media/Feather.ttf": "/static/media/Feather.0f5d9cede2e831f3fc80.ttf",
+    "static/media/Octicons.ttf": "/static/media/Octicons.6b742a230954dc640ba2.ttf",
+    "static/media/strawberries.jpg": "/static/media/strawberries.744ffac4fe00175d51c3.jpg",
+    "static/media/chameleon.jpg": "/static/media/chameleon.718de9151ba58db5bb5c.jpg",
+    "static/media/FontAwesome5_Regular.ttf": "/static/media/FontAwesome5_Regular.1017bce89c72f95bcf8e.ttf",
+    "static/media/Abel-Regular.ttf": "/static/media/Abel-Regular.3843f456cf56d275baf6.ttf",
+    "static/media/school_logo_124.png": "/static/media/school_logo_124.3c0b53004017c422080f.png",
+    "static/media/avatar.png": "/static/media/avatar.b89ba21ff1473c117440.png",
+    "favicon.ico": "/favicon.ico",
+    "static/media/paper-icon.png": "/static/media/paper-icon.a29ee23049676df3b2a0.png",
+    "index.html": "/index.html",
+    "favicon-32.png": "/favicon-32.png",
+    "favicon-16.png": "/favicon-16.png",
+    "manifest.json": "/manifest.json",
+    "serve.json": "/serve.json",
+    "main.fc5b2d66.js.map": "/static/js/main.fc5b2d66.js.map",
+    "391.94dc4443.js.map": "/static/js/391.94dc4443.js.map"
+  },
+  "entrypoints": [
+    "static/js/391.94dc4443.js",
+    "static/js/main.fc5b2d66.js"
+  ]
+}

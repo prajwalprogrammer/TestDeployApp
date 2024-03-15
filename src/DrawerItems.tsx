@@ -176,8 +176,8 @@ function DrawerItems({ navigation }: { navigation: any }) {
       label: 'Canteen'
     },
     {
-      icon: 'menu',
-      label: 'Visitors Declaration'
+      icon: () => <MaterialIcon name="cart" size={20} />,
+      label: 'shop'
     },
     {
       icon: 'menu',
@@ -254,6 +254,7 @@ function DrawerItems({ navigation }: { navigation: any }) {
                 theme={{ colors: { secondaryContainer: MD3Colors.error50 } }}
                 style={{ width: '100%', borderRadius: 0, }}
                 active={drawerItemIndex === index}
+                
                 onPress={() => { navigation.navigate(props.label), _setDrawerItem(index) }}
               />
             ))}

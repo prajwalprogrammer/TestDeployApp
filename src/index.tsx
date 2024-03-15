@@ -26,6 +26,15 @@ import { SafeAreaInsetsContext } from 'react-native-safe-area-context';
 
 import DrawerItems from './DrawerItems';
 import App from './RootNavigator';
+import MyStudent from './Examples/Screen/MyStudent';
+import Shop from './Examples/Screen/Shop';
+import PermissionToLeave from './Examples/Screen/PermissionToLeave';
+import StudySkills from './Examples/Screen/StudySkills';
+import Gallary from './Examples/Screen/Gallary';
+import PersonalNotification from './Examples/Screen/PersonalNotification';
+import News from './Examples/Screen/News';
+import Canteen from './Examples/Screen/Canteen';
+import Notification from './Examples/Screen/Notification';
 
 const PERSISTENCE_KEY = 'NAVIGATION_STATE';
 const PREFERENCES_KEY = 'APP_PREFERENCES';
@@ -182,6 +191,78 @@ export default function PaperExample() {
     }),
   };
 
+  const DrawerItemsArray = [
+    {
+      icon: 'menu',
+      label: 'School Office',
+      comp : Canteen
+    },
+    {
+      icon: 'menu',
+      label: 'News/Notification',
+      comp : Notification
+    },
+    {
+      icon: 'menu',
+      label: 'Personal Notification',
+      comp : PersonalNotification
+    },
+    {
+      icon: 'menu',
+      label: 'News Archives',
+      comp : News
+    },
+    {
+      icon: 'menu',
+      label: 'Gallary',
+      comp :Gallary
+    },
+    {
+      icon: 'menu',
+      label: 'Calender',
+      comp :Gallary
+    },
+    {
+      icon: 'menu',
+      label: 'My Student',
+      comp : MyStudent
+    },
+    {
+      icon: 'menu',
+      label: 'Absentee form',
+      comp : MyStudent
+    },
+    {
+      icon: 'menu',
+      label: 'Late Note',
+      comp : MyStudent
+    },
+    {
+      icon: 'menu',
+      label: 'Study Skills',
+      comp : StudySkills
+    },
+    {
+      icon: 'menu',
+      label: 'Permission to leave',
+      comp : PermissionToLeave
+    },
+    {
+      icon: 'menu',
+      label: 'Canteen',
+      comp : MyStudent
+    },
+    {
+      icon: 'menu',
+      label: 'shop',
+      comp : Shop
+    },
+    {
+      icon: 'menu',
+      label: 'Notice Boards',
+      comp : MyStudent
+    },
+  ]
   return (
     <PaperProvider
       settings={{ rippleEffectEnabled: preferences.rippleEffectEnabled }}
@@ -207,13 +288,20 @@ export default function PaperExample() {
                         width: collapsedDrawerWidth,
                       },
                     }}
-                    drawerContent={() => <DrawerItems />}
+                    drawerContent={(props) => <DrawerItems {...props} />}
                   >
                     <Drawer.Screen
                       name="Home"
                       component={App}
                       options={{ headerShown: false, }}
                     />
+                    {DrawerItemsArray.map((screen,idx) =>
+                    <Drawer.Screen
+                      key={idx}
+                      name={screen.label}
+                      component={screen.comp}
+                      // options={{ headerShown: false }}
+                    />)}
                   </Drawer.Navigator>
                 );
               }}

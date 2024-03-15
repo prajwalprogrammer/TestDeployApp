@@ -39,6 +39,7 @@ import Notification from './Examples/Screen/Notification';
 import { getHeaderTitle } from '@react-navigation/elements';
 import PermissionToLeave from './Examples/Screen/PermissionToLeave';
 import StudySkills from './Examples/Screen/StudySkills';
+import Shop from './Examples/Screen/Shop';
 
 const PERSISTENCE_KEY = 'NAVIGATION_STATE';
 const PREFERENCES_KEY = 'APP_PREFERENCES';
@@ -286,8 +287,8 @@ export default function PaperExample() {
     },
     {
       icon: 'menu',
-      label: 'Visitors Declaration',
-      comp : MyStudent
+      label: 'shop',
+      comp : Shop
     },
     {
       icon: 'menu',

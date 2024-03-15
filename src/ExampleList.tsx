@@ -68,6 +68,12 @@ import StudentBlog from './Examples/Screen/StudentBlog';
 import Attention from './Examples/Screen/Attention';
 import News from './Examples/Screen/News';
 import PersonalNotification from './Examples/Screen/PersonalNotification';
+import SchoolPayment from './Examples/StackScreen/SchoolPayment';
+import BookHistory from './Examples/StackScreen/BookHistory';
+import OrderHistory from './Examples/StackScreen/OrderHistory';
+import BookList from './Examples/StackScreen/BookList';
+import Uniform from './Examples/StackScreen/Uniform';
+import UniformHistory from './Examples/StackScreen/UniformHistory';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -84,7 +90,7 @@ function HomeScreen({ navigation }: Props) {
     if (!isV3 && data.title === mainExamples.themingWithReactNavigation.title) {
       return null;
     }
-
+    console.log("first",id)
     return (
       <List.Item
         unstable_pressDelay={65}
@@ -94,7 +100,6 @@ function HomeScreen({ navigation }: Props) {
     );
   };
   return (
-
     <View>
       <FlatList
         contentContainerStyle={{
@@ -257,6 +262,12 @@ export const mainExamples: Record<
   touchableRipple: TouchableRippleExample,
   theme: ThemeExample,
   themingWithReactNavigation: ThemingWithReactNavigation,
+  schoolPayment : SchoolPayment,
+  bookHistory : BookHistory,
+  orderHistory : OrderHistory,
+  bookList : BookList,
+  uniform : Uniform,
+  uniformHis : UniformHistory
 };
 
 export const nestedExamples: Record<
